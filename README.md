@@ -29,7 +29,7 @@ Create a `.env` file in the project root with the following values:
 
 ```env
 DB_HOST=localhost
-DB_PORT=5432
+DB_PORT=xxxx
 DB_NAME=YOUR_DB_NAME
 DB_USER=YOUR_DB_USER
 DB_PASSWORD=YOUR_DB_PASSWORD
