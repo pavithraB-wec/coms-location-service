@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COMS Map View</title>
+
+    <script src="https://apis.mappls.com/advancedmaps/api/jlvafsbrsbmvbikpurikppifxgstktedsqbd/map_sdk?layer=vector&v=3.0"></script>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .info-box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 999;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: Arial;
+            box-shadow: 0px 2px 8px rgba(0,0,0,.2);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="info-box">
+    <h3>COMS Location Service</h3>
+
+    <div id="coords">
+        Click map to get coordinates
+    </div>
+</div>
+
+<div id="map"></div>
+
+<script>
+
+var map = new mappls.Map(
+    "map",
+    {
+        center:[11.9405,79.8150],
+        zoom:14
+    }
+);
+
+map.on("click", function(e){
+
+    document.getElementById("coords").innerHTML =
+        "Latitude : " + e.lngLat.lat +
+        "<br>Longitude : " + e.lngLat.lng;
+
+});
+
+</script>
+
+</body>
+</html>

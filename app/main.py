@@ -11,6 +11,7 @@ from app.database import engine
 from app.database import get_db
 from app.model import TblConstituency
 from app.schemas import LocationRequest
+from fastapi.responses import HTMLResponse
 
 Base.metadata.create_all(bind=engine)
 
@@ -31,6 +32,17 @@ def health():
     return {
         "status": "healthy"
     }
+
+@app.get("/map", response_class=HTMLResponse)
+def map_view():
+
+    with open(
+        "templates/map.html",
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        return file.read()
 
 @app.post("/check-location")
 def check_location(
